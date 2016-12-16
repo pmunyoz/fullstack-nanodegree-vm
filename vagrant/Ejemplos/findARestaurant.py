@@ -9,6 +9,7 @@ sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 
 foursquare_client_id = "PASTE_YOUR_ID_HERE"
 foursquare_client_secret = "YOUR_SECRET_HERE"
+google_api_key = ""
 
 
 def findARestaurant(mealType,location):
