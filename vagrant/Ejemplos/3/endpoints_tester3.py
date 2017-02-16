@@ -8,15 +8,15 @@ if address == '':
 	address = 'http://localhost:5000'
 
 
-
 #Making a POST Request
 print "Making a POST request to /puppies..."
 try:
-	url = address + "/puppies?name=Fido&description=Playful+Little+Puppy"
+	url = address + "/puppies?name=Fido&description=Playful"
 	h = httplib2.Http()
 	resp, result = h.request(url, 'POST')
-	obj = json.loads(result)
-	puppyID = obj['Puppy']['id']
+	print result
+	#obj = json.loads(result)
+	#puppyID = obj['Puppy']['id']
 	if resp['status'] != '200':
 		raise Exception('Received an unsuccessful status code of %s' % resp['status'])
 
@@ -26,14 +26,12 @@ except Exception as err:
 	sys.exit()
 else:
 	print "Test 1 PASS: Succesfully Made POST Request to /puppies"
-
-
-
-
-#Making a GET Request
+	
+#Making a GET Request	
 print "Making a GET Request for /puppies..."
+
 try:
-	url = address + "/puppies"
+	url = address + "/puppies/"
 	h = httplib2.Http()
 	resp, result = h.request(url, 'GET')
 	if resp['status'] != '200':
@@ -44,9 +42,6 @@ except Exception as err:
 	sys.exit()
 else:
 	print "Test 2 PASS: Succesfully Made GET Request to /puppies"
-
-
-
 
 #Making GET Requests to /puppies/id
 print "Making GET requests to /puppies/id "

@@ -25,13 +25,15 @@ def puppiesFunction():
     return getAllPuppies()
   elif request.method == 'POST':
     #Call the method to make a new puppy
-    print "Making a New puppy"    
-
+    print "Making a New puppy"
+    
     name = request.args.get('name', '')
     description = request.args.get('description', '')
     print name
     print description
-    return makeANewPuppy(name, description)   
+    return makeANewPuppy(name, description)
+ 
+  
  
 #Make another app.route() decorator here that takes in an integer id in the URI
 @app.route("/puppies/<int:id>", methods = ['GET', 'PUT', 'DELETE'])
@@ -83,4 +85,4 @@ def deletePuppy(id):
 
 if __name__ == '__main__':
     app.debug = False
-    app.run(host='0.0.0.0', port=5000)	
+    app.run(host='0.0.0.0', port=5000)
