@@ -36,7 +36,7 @@ def new_user():
         return jsonify(users = [i.username for i in users])
         
 @app.route('/api/users/<int:id>')
-def get_user(id):
+# def get_user(id):
     try:
         user = session.query(User).filter_by(id=id).one()
         if not user:
